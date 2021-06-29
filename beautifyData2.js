@@ -5,6 +5,7 @@ const data = require("./paragraphs.json");
 let week;
 const beautifyData2 = {};
 data.forEach(text => {
+  if(!text) return;
   if(text.includes("IELTS VOCABULARY") || text.includes("IETLS VOCABULARY") ){
     console.log("element", text)
     week=text;
