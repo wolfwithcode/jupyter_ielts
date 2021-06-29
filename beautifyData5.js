@@ -42,20 +42,21 @@ const convertToLines = (content) => {
   return lines;
 }
 
-const originContent =[
-  "= (Literally, “against decaying” ) substance that prevents infection",
-  "(Nghĩa đen: “Chống lại sự phân hủy” ) chất chống nhiễm trùng, chất sát trùngEx: The wound was carefully washed; then an antiseptic, tincture of iodine, wasapplied.",
-  "(Vết thƣơng đƣợc rửa cẩn thận rồi bôi thuốc sát trùng, tentuya idot, vào.)"
-];
+// const originContent =[
+//   "= (Literally, “against decaying” ) substance that prevents infection",
+//   "(Nghĩa đen: “Chống lại sự phân hủy” ) chất chống nhiễm trùng, chất sát trùngEx: The wound was carefully washed; then an antiseptic, tincture of iodine, wasapplied.",
+//   "(Vết thƣơng đƣợc rửa cẩn thận rồi bôi thuốc sát trùng, tentuya idot, vào.)"
+// ];
 
-const result =data.map(element => {
-  const {originContent} = element;
-  const lines = convertToLines(originContent);
-  return {originContent,lines};
+data.forEach(element => {
+  const {content} = element;
+  const lines = convertToLines(content);
+  element.lines = lines;
+  // return {originContent,lines};
 } ) ;
 
 
 writeJsonFile(
   "beautifyData5.json",
-  result,
+  data,
 );
